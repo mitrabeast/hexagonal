@@ -30,3 +30,7 @@ func (s *UserService) Register(ctx context.Context, user *user.User) error {
 func (s *UserService) Retrieve(ctx context.Context, ID int64) (*user.User, error) {
 	return s.repo.FindByID(ctx, ID)
 }
+
+func (s *UserService) List(ctx context.Context) (user.Users, error) {
+	return s.repo.FindAll(ctx)
+}

@@ -21,8 +21,18 @@ func NewUserController(usecase user.UserUsecase) *UserController {
 }
 
 func (c *UserController) MountRoutes(r chi.Router) {
+	r.Get("/user", c.GetAll)
 	r.Get("/user/{id}", c.GetByID)
 	r.Post("/user", c.Register)
+}
+
+func (c *UserController) GetAll(w http.ResponseWriter, r *http.Request) {
+	users, err := c.usecase.List(r.Context())
+	if err != nil {
+		util.Error(w, http.StatusBadRequest, err)
+		return
+	}
+	util.Success(w, http.StatusOK, users.PublicInfo())
 }
 
 func (c *UserController) GetByID(w http.ResponseWriter, r *http.Request) {
