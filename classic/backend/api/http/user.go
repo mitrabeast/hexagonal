@@ -7,7 +7,7 @@ import (
 	"github.com/go-chi/chi/v5"
 
 	"classic-hexagonal/hexagon/model"
-	"classic-hexagonal/usecase"
+	"classic-hexagonal/hexagon/usecase"
 	"classic-hexagonal/util"
 )
 

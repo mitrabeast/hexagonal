@@ -7,7 +7,7 @@ import (
 
 	"classic-hexagonal/hexagon/dependency/repo"
 	"classic-hexagonal/hexagon/model"
-	"classic-hexagonal/usecase"
+	"classic-hexagonal/hexagon/usecase"
 )
 
 type UserService struct {
