@@ -23,3 +23,14 @@ func (u *User) PublicInfo() json.RawMessage {
 	})
 	return data
 }
+
+type Users []*User
+
+func (u Users) PublicInfo() json.RawMessage {
+	data := make([]json.RawMessage, len(u))
+	for i := range u {
+		data[i] = u[i].PublicInfo()
+	}
+	res, _ := json.Marshal(data)
+	return res
+}

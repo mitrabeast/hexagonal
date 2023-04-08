@@ -32,3 +32,8 @@ func (s *UserService) Register(ctx context.Context, user *model.User) error {
 func (s *UserService) Retrieve(ctx context.Context, ID int64) (*model.User, error) {
 	return s.repo.FindByID(ctx, ID)
 }
+
+// List implements usecase.UserUsecase
+func (s *UserService) List(ctx context.Context) (model.Users, error) {
+	return s.repo.FindAll(ctx)
+}
