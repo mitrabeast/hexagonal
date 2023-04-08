@@ -33,7 +33,7 @@ func (c *UserController) GetByID(w http.ResponseWriter, r *http.Request) {
 		util.Error(w, http.StatusBadRequest, err)
 		return
 	}
-	util.Success(w, http.StatusOK, user)
+	util.Success(w, http.StatusOK, user.PublicInfo())
 }
 
 func (c *UserController) Register(w http.ResponseWriter, r *http.Request) {
@@ -46,5 +46,5 @@ func (c *UserController) Register(w http.ResponseWriter, r *http.Request) {
 		util.Error(w, http.StatusBadRequest, err)
 		return
 	}
-	util.Success(w, http.StatusOK, &user)
+	util.Success(w, http.StatusOK, user.PublicInfo())
 }
